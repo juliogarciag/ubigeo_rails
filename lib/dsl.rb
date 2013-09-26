@@ -10,7 +10,7 @@ module UbigeoRails
   end
   
   class DSLConfig
-    def table_name
+    def table_name(table_name)
       UbigeoRails.table_name = table_name
     end
     
