@@ -1,10 +1,17 @@
 module UbigeoRails
   class Ubigeo < ActiveRecord::Base
-    # TODO: Add Generator for initializer
-    # TODO: Configurable
-    self.table_name = 'ubigeo_ubigeo'
-    # TODO: Configurable
-    establish_connection "general_#{Rails.env}"
+    if UbigeoRails.table_name.present?
+      self.table_name = UbigeoRails.table_name
+    end
+    
+    connection_name = if UbigeoRails.db_connection_proc.present?
+      UbigeoRails.db_connection_proc.call
+    else
+      Rails.env
+    end
+    
+    establish_connection connection_name
+    
     # TODO: Generator If migration is needed: rails g ubigeo_rails:migration
     # TODO: Generator if seed is needed: rails g ubigeo_rails:seeds
 
