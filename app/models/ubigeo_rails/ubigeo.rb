@@ -11,10 +11,6 @@ module UbigeoRails
     end
     
     establish_connection connection_name
-    
-    # TODO: Generator If migration is needed: rails g ubigeo_rails:migration
-    # id, name and parent_id, timestamps
-    # TODO: Generator if seed is needed: rails g ubigeo_rails:seeds
 
     belongs_to :parent, class_name: "UbigeoRails::Ubigeo"
     

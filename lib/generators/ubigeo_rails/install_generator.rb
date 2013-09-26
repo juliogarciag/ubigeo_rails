@@ -1,8 +1,12 @@
 module UbigeoRails
   module Generators
-    class ConfigGenerator < ::Rails::Generators::Base
+    class InstallGenerator < ::Rails::Generators::Base
       def create_config_file
         create_file "config/initializers/ubigeo_rails.rb", config_file_content
+      end
+      
+      def mount_engine
+        route 'mount UbigeoRails::Engine, at: "ubigeo"'
       end
       
       private
