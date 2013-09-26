@@ -10,8 +10,8 @@ module UbigeoRails
       def config_file_content
 <<CODE
 UbigeoRails.config do |config|
-  config.table_name 'ubigeo_ubigeo'
-  config.db_connection { Rails.env }
+  # config.table_name 'ubigeo'
+  # config.db_connection { Rails.env }
 end
 CODE
       end
