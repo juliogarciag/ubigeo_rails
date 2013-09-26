@@ -13,20 +13,21 @@ module UbigeoRails
     establish_connection connection_name
     
     # TODO: Generator If migration is needed: rails g ubigeo_rails:migration
+    # id, name and parent_id, timestamps
     # TODO: Generator if seed is needed: rails g ubigeo_rails:seeds
 
     belongs_to :parent, class_name: "UbigeoRails::Ubigeo"
     
     def has_department?
-      digits >= 2 && digits <= 6
+      digits >= 1 && digits <= 6
     end
     
     def has_province?
-      digits >= 4 && digits <= 6
+      digits >= 3 && digits <= 6
     end
     
     def has_district?
-      digits == 6
+      digits >= 5 && digits <= 6
     end
     
     def department_part
