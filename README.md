@@ -1,0 +1,3 @@
+# Assumptions
+
+- You use Formtastic
