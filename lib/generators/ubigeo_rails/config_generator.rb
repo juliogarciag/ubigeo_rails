@@ -1,9 +1,9 @@
 module UbigeoRails
-  class ConfigGenerator << Rails::Generators::Base
-    def create_initializer_file
-      create_file "config/ubigeo_rails.rb", <<CODE
-        # Here is a couple of code
-      CODE
+  module Generators
+    class ConfigGenerator < Rails::Generators::Base
+      def create_config_file
+        create_file "config/ubigeo_rails.rb", "Hola :D"
+      end
     end
   end
 end
