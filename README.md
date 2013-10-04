@@ -1,28 +1,56 @@
+# Ubigeo Rails
+
+## Asunciones
+
+- Usas Formtastic (posiblemente a futuro se haga algo para SimpleForm pero Formtastic está bien)
+
 ## Instalación
 
-# Asunciones
+Agrega la gema al Gemfile
+    
+    gem 'ubigeo_rails'
+    
+Instala la gema, lo que creará una ruta y un inicializador
 
-- Usas Formtastic
-- Tienes ya una tabla de ubigeo.
+    rails g ubigeo_rails:install
 
-# Instalación
+## Configuración
 
-- Agrega la gema al Gemfile
-- Instala la gema (se agregará una ruta y un inicializador)
+Edita el inicializador (en app/config/initializers/ubigeo_rails.rb) con datos como los siguientes:
 
-      rails g ubigeo_rails:install
+    UbigeoRails.config do |config|
+      config.table_name 'ubigeo_ubigeo'
+      config.db_connection { "general_#{Rails.env}" }
+    end
 
-# Configuración
+La razón principal de estas opciones es para poder conectar a bases de datos ya existentes.
 
-- Edita el inicializador (en app/config/initializers/ubigeo_rails.rb) con datos como los siguientes:
+## Información
 
-      UbigeoRails.config do |config|
-        config.table_name 'ubigeo_ubigeo'
-        config.db_connection { "general_#{Rails.env}" }
-      end
+Puedes llenar la base de datos de ubigeo en dos pasos:
 
-# TODO
+Crear la tabla:
+
+    rails g migration create_ubigeos name:string parent_id:integer
+    rake db:migrate 
+
+Generar los seeds (la información):
+
+    rails g ubigeo_rails:seeds
+
+El primero creará una migración y el segundo agregará código al archivo `seeds.rb` que permitirá generar la data:
+
+    rake db:seed
+
+## Asociaciones
+
+Para asociar, debes especificar la clase exacta de Ubigeo. Por ejemplo:
+
+    class User < < ActiveRecord::Base
+      belongs_to :ubigeo, class_name: "UbigeoRails::Ubigeo"
+    end
+
+## TODO
 
 - Realizar estas tareas para eliminar la segunda asunción:
     - Generator If migration is needed: rails g ubigeo_rails:migration : id, name and parent_id, timestamps
-    - Generator if seed is needed: rails g ubigeo_rails:seeds
