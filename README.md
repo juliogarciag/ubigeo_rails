@@ -14,7 +14,7 @@ Instala la gema, lo que creará una ruta y un inicializador
 
     rails g ubigeo_rails:install
 
-## Configuración
+## Si ya tienes una tabla de Ubigeo
 
 Edita el inicializador (en app/config/initializers/ubigeo_rails.rb) con datos como los siguientes:
 
@@ -25,7 +25,7 @@ Edita el inicializador (en app/config/initializers/ubigeo_rails.rb) con datos co
 
 La razón principal de estas opciones es para poder conectar a bases de datos ya existentes.
 
-## Información
+## Si no la tienes
 
 Si no tienes una bd ya existente, puedes llenar la base de datos de ubigeo en dos pasos:
 
@@ -38,7 +38,7 @@ Generar los seeds (la información):
 
     rails g ubigeo_rails:seeds
 
-El primero creará una migración y el segundo agregará código al archivo `seeds.rb` que permitirá generar la data:
+El primero creará una migración y el segundo agregará código al archivo `seeds.rb` que permitirá generar la data usando el estándar:
 
     rake db:seed
 

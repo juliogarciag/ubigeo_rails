@@ -6,8 +6,7 @@ Gem::Specification.new do |s|
   s.description = "A ubigeo wrapper"
   s.authors     = ["Julio García"]
   s.email       = 'julioggonz@gmail.com'
-  # s.files       = ["lib/ubigeo_rails.rb"]
-  s.files         = `git ls-files`.split("\n").sort
-  # s.homepage    = 'http://rubygems.org/gems/hola'
-  s.license       = 'MIT'
+  s.files       = `git ls-files`.split("\n").sort
+  s.homepage    = 'https://github.com/juliogarciag/ubigeo_rails'
+  s.license     = 'MIT'
 end
