@@ -27,7 +27,7 @@ La razón principal de estas opciones es para poder conectar a bases de datos ya
 
 ## Información
 
-Puedes llenar la base de datos de ubigeo en dos pasos:
+Si no tienes una bd ya existente, puedes llenar la base de datos de ubigeo en dos pasos:
 
 Crear la tabla:
 
@@ -49,8 +49,3 @@ Para asociar, debes especificar la clase exacta de Ubigeo. Por ejemplo:
     class User < < ActiveRecord::Base
       belongs_to :ubigeo, class_name: "UbigeoRails::Ubigeo"
     end
-
-## TODO
-
-- Realizar estas tareas para eliminar la segunda asunción:
-    - Generator If migration is needed: rails g ubigeo_rails:migration : id, name and parent_id, timestamps
