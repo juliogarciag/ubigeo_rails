@@ -37,6 +37,9 @@ class UbigeoDependantManager
     # REFACTOR: This is a callback hell D:
     # The pyramid of Doom
     # REFACTOR ME PLEASE!
+    # 
+    # Ok, let's this refactoring be a homework for the others :)
+    # 
     @getLoadedSelection @deptEl, (deptValue) =>
       @provEl.one 'ubigeo:loaded', =>
         @getLoadedSelection @provEl, (provValue) =>
