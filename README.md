@@ -46,6 +46,15 @@ El primero creará una migración y el segundo agregará código al archivo `see
 
 Para asociar, debes especificar la clase exacta de Ubigeo. Por ejemplo:
 
-    class User < < ActiveRecord::Base
+    class User << ActiveRecord::Base
       belongs_to :ubigeo, class_name: "UbigeoRails::Ubigeo"
     end
+
+## Modelo
+
+También puedes usar los siguientes métodos de la clase Ubigeo:
+
+- **#has_department?**: Si el código de ubigeo contiene o no la información de un departamento
+- **#has_province?**: Si el código de ubigeo contiene o no la información de una provincia
+- **#has_district?**: Si el código de ubigeo contiene o no la información de un distrito
+- **.with_parent**: Devuelve los hijos de un ubigeo. Por ejemplo, los distritos de Lima o las provincias de Arequipa.
