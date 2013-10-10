@@ -2,8 +2,10 @@ module UbigeoRails
   extend self
   
   def seed_db!
-    Seeds::DATA.each do |ubigeo_data|
-      Ubigeo.create(ubigeo_data)
+    if Ubigeo.empty?
+      Seeds::DATA.each do |ubigeo_data|
+        Ubigeo.create(ubigeo_data)
+      end
     end
   end
   
