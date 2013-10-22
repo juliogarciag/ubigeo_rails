@@ -16,13 +16,22 @@ class UbigeoInput
       opts[:class] = classes
       opts[:id] ||= wrapper_dom_id
       opts['data-url'] = options[:url] || ubigeo_rails_path
+      opts['ubigeo_model'] = options[:ubigeo_model]
     end
   end
   
   private
   
   def load_ubigeo
-    @ubigeo ||= (builder.object.ubigeo || builder.object.build_ubigeo)
+    model = builder.object
+    
+    @ubigeo ||= if options['ubigeo_model']
+      options['ubigeo_model']
+    elsif model.ubigeo
+      model.ubigeo
+    elsif
+      UbigeoRails::Ubigeo.new
+    end
   end
   
   def classes
