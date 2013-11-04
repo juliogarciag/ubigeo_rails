@@ -42,6 +42,14 @@ module UbigeoRails
       where parent_id: parent_id
     end
     
+    def self.departments
+      with_parent nil
+    end
+    
+    def self.children_of(*departments)
+      where(parent_id: departments)
+    end
+    
     private
     
     def digits
