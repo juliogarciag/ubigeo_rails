@@ -28,7 +28,7 @@ class UbigeoInput
       options[:ubigeo_model]
     elsif model.ubigeo
       model.ubigeo
-    elsif
+    else
       UbigeoRails::Ubigeo.new
     end
   end
