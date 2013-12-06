@@ -88,11 +88,14 @@ class UbigeoDependantManager
 ready = ->
   # should decorate the ubigeo_input class elements
   manager = new UbigeoDependantManager el: $('.ubigeo_input')
-  # set the event listeners
-  manager.startListeners()
-  # load the departments
-  manager.loadDepartments =>
-    manager.cascadeLoad()
+  
+  # only begins the load if the elements exists
+  if manager.el.length > 0
+    # set the event listeners
+    manager.startListeners()
+    # load the departments
+    manager.loadDepartments =>
+      manager.cascadeLoad()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
